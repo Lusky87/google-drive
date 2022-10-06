@@ -22,6 +22,21 @@ public class PolicyHandler{
     @StreamListener(KafkaProcessor.INPUT)
     public void whatever(@Payload String eventString){}
 
+    @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='VideoProcessed'")
+    public void wheneverVideoProcessed_SendNotification(@Payload VideoProcessed videoProcessed){
+
+        VideoProcessed event = videoProcessed;
+        System.out.println("\n\n##### listener SendNotification : " + videoProcessed + "\n\n");
+
+
+        
+
+        // Sample Logic //
+
+        
+
+    }
+
 }
 
 

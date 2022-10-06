@@ -11,7 +11,7 @@ spring:
         - id: dashboard
           uri: http://localhost:8081
           predicates:
-            - Path=, 
+            - Path=, /dashboards/**
         - id: drive
           uri: http://localhost:8082
           predicates:
@@ -54,7 +54,7 @@ spring:
         - id: dashboard
           uri: http://dashboard:8080
           predicates:
-            - Path=, 
+            - Path=, /dashboards/**
         - id: drive
           uri: http://drive:8080
           predicates:
