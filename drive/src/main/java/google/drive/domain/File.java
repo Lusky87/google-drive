@@ -40,6 +40,12 @@ public class File  {
     
     
     private Long size;
+    
+    
+    
+    
+    
+    private String status;
 
     @PostPersist
     public void onPostPersist(){
@@ -49,6 +55,9 @@ public class File  {
         fileUploaded.publishAfterCommit();
 
     }
+    @PreRemove
+    public void onPreRemove(){
+    }
 
     public static FileRepository repository(){
         FileRepository fileRepository = DriveApplication.applicationContext.getBean(FileRepository.class);
@@ -57,6 +66,11 @@ public class File  {
 
 
 
+    public void delete(){
+        FileDeleted fileDeleted = new FileDeleted(this);
+        fileDeleted.publishAfterCommit();
+
+    }
 
 
 

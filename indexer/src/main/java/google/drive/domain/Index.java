@@ -77,6 +77,27 @@ public class Index  {
 
         
     }
+    public static void deleteIndex(FileDeleted fileDeleted){
+
+        /** Example 1:  new item 
+        Index index = new Index();
+        repository().save(index);
+
+        */
+
+        /** Example 2:  finding and process
+        
+        repository().findById(fileDeleted.get???()).ifPresent(index->{
+            
+            index // do something
+            repository().save(index);
+
+
+         });
+        */
+
+        
+    }
 
 
 }

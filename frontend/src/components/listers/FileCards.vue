@@ -71,6 +71,7 @@
                 'name': '',
                 'type': '',
                 'size': 0,
+                'status': '',
             }
         },
         methods:{

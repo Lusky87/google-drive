@@ -20,6 +20,7 @@
             <String label="Name" v-model="value.name" :editMode="editMode"/>
             <String label="Type" v-model="value.type" :editMode="editMode"/>
             <Number label="Size" v-model="value.size" :editMode="editMode"/>
+            <String label="Status" v-model="value.status" :editMode="editMode"/>
         </v-card-text>
 
         <v-card-actions>
@@ -59,6 +60,14 @@
         </v-card-actions>
         <v-card-actions>
             <v-spacer></v-spacer>
+            <v-btn
+                    v-if="!editMode"
+                    color="deep-purple lighten-2"
+                    text
+                    @click="delete"
+            >
+                Delete
+            </v-btn>
         </v-card-actions>
 
         <v-snackbar
@@ -189,6 +198,25 @@
             },
             change(){
                 this.$emit('input', this.value);
+            },
+            async delete() {
+                try {
+                    if(!this.offline) {
+                        var temp = await axios.put(axios.fixUrl(this.value._links['delete'].href))
+                        for(var k in temp.data) {
+                            this.value[k]=temp.data[k];
+                        }
+                    }
+
+                    this.editMode = false;
+                } catch(e) {
+                    this.snackbar.status = true
+                    if(e.response && e.response.data.message) {
+                        this.snackbar.text = e.response.data.message
+                    } else {
+                        this.snackbar.text = e
+                    }
+                }
             },
         },
     }
