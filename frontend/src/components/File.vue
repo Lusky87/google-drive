@@ -19,6 +19,7 @@
         <v-card-text>
             <String label="Name" v-model="value.name" :editMode="editMode"/>
             <String label="Type" v-model="value.type" :editMode="editMode"/>
+            <Number label="Size" v-model="value.size" :editMode="editMode"/>
         </v-card-text>
 
         <v-card-actions>
