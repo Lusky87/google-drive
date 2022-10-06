@@ -86,7 +86,7 @@
             this.values = temp.data._embedded.indexes;
 
             this.newValue = {
-                'keywords': '',
+                'keywords': [],
                 'fileKey': '',
             }
         },
