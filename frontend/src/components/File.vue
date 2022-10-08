@@ -64,7 +64,7 @@
                     v-if="!editMode"
                     color="deep-purple lighten-2"
                     text
-                    @click="delete"
+                    @click="deleteFile"
             >
                 Delete
             </v-btn>
@@ -199,7 +199,7 @@
             change(){
                 this.$emit('input', this.value);
             },
-            async delete() {
+            async deleteFile() {
                 try {
                     if(!this.offline) {
                         var temp = await axios.put(axios.fixUrl(this.value._links['delete'].href))

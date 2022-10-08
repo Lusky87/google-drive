@@ -13,7 +13,7 @@
             <v-btn
                     color="deep-purple lighten-2"
                     text
-                    @click="delete"
+                    @click="deleteFile"
             >
                 Delete
             </v-btn>
@@ -45,7 +45,7 @@
         watch: {
         },
         methods: {
-            delete() {
+            deleteFile() {
                 this.$emit('delete', this.value);
             },
             close() {

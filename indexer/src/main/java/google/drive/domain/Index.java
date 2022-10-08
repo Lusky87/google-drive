@@ -80,7 +80,7 @@ public class Index  {
 
         /** Example 2:  finding and process */
         
-        repository().findByFileId(String.valueOf(fileDeleted.getId())).ifPresent(index->{
+        repository().findByFileKey(String.valueOf(fileDeleted.getId())).ifPresent(index->{
             
             repository().delete(index);
 
