@@ -20,6 +20,12 @@
                             <v-list-item-subtitle>
                                 Type :  {{item.type }}
                             </v-list-item-subtitle>
+                            <v-list-item-subtitle>
+                                Size :  {{item.size }}
+                            </v-list-item-subtitle>
+                            <v-list-item-subtitle>
+                                Status :  {{item.status }}
+                            </v-list-item-subtitle>
                         </v-list-item-content>
 
                         <v-list-item-action>
@@ -71,6 +77,10 @@
                 if(val != undefined) {
                     var arr = this.list[val]._links.self.href.split('/');
                     obj['id'] = arr[4]; 
+                    
+                    
+                    
+                    
                     
                     
                     

@@ -5,6 +5,10 @@
         </v-card-title>
 
         <v-card-text>
+            <StringManager offline label="Keywords" v-model="item.keywords" :editMode="false" @change="change" />
+            <div>
+                <String label="FileKey" v-model="item.fileKey" :editMode="editMode" @change="change" />
+            </div>
         </v-card-text>
 
         <v-card-actions>

@@ -22,6 +22,18 @@ public class Index  {
     
     
     private Long id;
+    
+    
+    
+    @ElementCollection
+    
+    private List<String> keywords;
+    
+    
+    
+    
+    
+    private String fileKey;
 
     @PostPersist
     public void onPostPersist(){
@@ -59,6 +71,27 @@ public class Index  {
 
             Indexed indexed = new Indexed(index);
             indexed.publishAfterCommit();
+
+         });
+        */
+
+        
+    }
+    public static void deleteIndex(FileDeleted fileDeleted){
+
+        /** Example 1:  new item 
+        Index index = new Index();
+        repository().save(index);
+
+        */
+
+        /** Example 2:  finding and process
+        
+        repository().findById(fileDeleted.get???()).ifPresent(index->{
+            
+            index // do something
+            repository().save(index);
+
 
          });
         */

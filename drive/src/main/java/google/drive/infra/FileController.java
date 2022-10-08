@@ -21,4 +21,23 @@ public class FileController {
 
 
 
+    @RequestMapping(value = "files/{id}/delete",
+        method = RequestMethod.PUT,
+        produces = "application/json;charset=UTF-8")
+    public File delete(@PathVariable(value = "id") Long id, HttpServletRequest request, HttpServletResponse response) throws Exception {
+            System.out.println("##### /file/delete  called #####");
+            Optional<File> optionalFile = fileRepository.findById(id);
+            
+            optionalFile.orElseThrow(()-> new Exception("No Entity Found"));
+            File file = optionalFile.get();
+            file.delete();
+            
+            fileRepository.save(file);
+            return file;
+            
+    }
+    
+
+
+
 }

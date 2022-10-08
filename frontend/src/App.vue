@@ -37,6 +37,16 @@
                 <v-list>
 
 
+                    <v-list-item
+                        class="px-2"
+                        key="dashboards"
+                        to="dashboards"
+                        @click="changeUrl()"
+                        color="deep-purple lighten-2"
+                        style="font-weight:700;"
+                    >
+                        Dashboard
+                    </v-list-item>
 
                     <v-list-item
                         class="px-2"
@@ -90,6 +100,35 @@
             <v-container v-else class="py-8 px-6 mt-10" fluid>
                 <v-row>
 
+                        <v-card
+                            class="mx-auto"
+                            style="height:300px; width:300px; margin-bottom:20px;"
+                            outlined
+                        >
+                            <v-list-item>
+                                <v-list-item-avatar 
+                                    class="mx-auto"
+                                    size="80"
+                                    style="margin-top:80px;"
+                                ><span class="mdi mdi-apps" style="font-size:60px; color:#9575CD;"></span>
+                                </v-list-item-avatar>
+                            </v-list-item>
+
+                            <v-card-actions>
+                                <v-btn 
+                                    class="mx-auto"
+                                    outlined
+                                    rounded
+                                    key="dashboards"
+                                    to="/dashboards"
+                                    @click="changeUrl()"
+                                    color="deep-purple lighten-2"
+                                    style="font-weight:500; font-size:20px; padding:15px;"
+                                >
+                                    Dashboard
+                                </v-btn>
+                            </v-card-actions>
+                        </v-card>
                         <v-card
                             class="mx-auto"
                             style="height:300px; width:300px; margin-bottom:20px;"

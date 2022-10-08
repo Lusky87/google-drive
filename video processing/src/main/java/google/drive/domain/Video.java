@@ -22,6 +22,18 @@ public class Video  {
     
     
     private Long id;
+    
+    
+    
+    
+    
+    private String videoUrl;
+    
+    
+    
+    
+    
+    private Long fileId;
 
     @PostPersist
     public void onPostPersist(){
@@ -61,6 +73,27 @@ video.setVideoUrl("https://www.youtube.com/" + fileUploaded.getName().replaceAll
 
             VideoProcessed videoProcessed = new VideoProcessed(video);
             videoProcessed.publishAfterCommit();
+
+         });
+        */
+
+        
+    }
+    public static void deleteVideo(FileDeleted fileDeleted){
+
+        /** Example 1:  new item 
+        Video video = new Video();
+        repository().save(video);
+
+        */
+
+        /** Example 2:  finding and process
+        
+        repository().findById(fileDeleted.get???()).ifPresent(video->{
+            
+            video // do something
+            repository().save(video);
+
 
          });
         */
