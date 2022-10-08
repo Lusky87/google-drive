@@ -16,34 +16,13 @@ public class File  {
     
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    
-    
-    
-    
-    
     private Long id;
-    
-    
-    
-    
     
     private String name;
     
-    
-    
-    
-    
     private String type;
     
-    
-    
-    
-    
     private Long size;
-    
-    
-    
-    
     
     private String status;
 
@@ -67,6 +46,9 @@ public class File  {
 
 
     public void delete(){
+
+        setStatus("DELETED");
+
         FileDeleted fileDeleted = new FileDeleted(this);
         fileDeleted.publishAfterCommit();
 

@@ -57,7 +57,8 @@ public class Video  {
         /** Example 1:  new item       */
         Video video = new Video();
         video.setFileId(fileUploaded.getId());
-video.setVideoUrl("https://www.youtube.com/" + fileUploaded.getName().replaceAll(" ","-"));
+        video.setVideoUrl("https://www.youtube.com/" + fileUploaded.getName().replaceAll(" ","-"));
+        
         repository().save(video);
 
         VideoProcessed videoProcessed = new VideoProcessed(video);

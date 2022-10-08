@@ -5,6 +5,8 @@ import google.drive.IndexerApplication;
 import javax.persistence.*;
 import java.util.List;
 import lombok.Data;
+
+import java.util.Arrays;
 import java.util.Date;
 
 @Entity
@@ -16,28 +18,15 @@ public class Index  {
     
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    
-    
-    
-    
-    
     private Long id;
     
-    
-    
     @ElementCollection
-    
     private List<String> keywords;
-    
-    
-    
-    
     
     private String fileKey;
 
     @PostPersist
     public void onPostPersist(){
-
 
         Indexed indexed = new Indexed(this);
         indexed.publishAfterCommit();
@@ -54,13 +43,17 @@ public class Index  {
 
     public static void makeIndex(FileUploaded fileUploaded){
 
-        /** Example 1:  new item 
+        /** Example 1:  new item        */ 
         Index index = new Index();
+
+        index.setFileKey(String.valueOf(fileUploaded.getId()));        
+        index.setKeywords(Arrays.asList(fileUploaded.getName().split(" ")));
+        
         repository().save(index);
 
-        Indexed indexed = new Indexed(index);
-        indexed.publishAfterCommit();
-        */
+        // Indexed indexed = new Indexed(index);
+        // indexed.publishAfterCommit();
+
 
         /** Example 2:  finding and process
         
@@ -85,16 +78,15 @@ public class Index  {
 
         */
 
-        /** Example 2:  finding and process
+        /** Example 2:  finding and process */
         
-        repository().findById(fileDeleted.get???()).ifPresent(index->{
+        repository().findByFileId(String.valueOf(fileDeleted.getId())).ifPresent(index->{
             
-            index // do something
-            repository().save(index);
+            repository().delete(index);
 
 
          });
-        */
+       
 
         
     }
